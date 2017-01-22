@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 		<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 
-		<title>Women's March</title>
+		<title>flock</title>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -37,8 +37,8 @@
 		<script type="text/javascript">
 			// Load the tile images from OpenStreetMap
 			var mytiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-			    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-			});
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+});
 
 			// Initialise an empty map
 			var map = L.map('mapid');
@@ -48,7 +48,7 @@
 			$.getJSON("geo_data.json", function(data) {
 			    var myStyle = {
 			        radius: 4,
-			        fillColor: "blue",
+			        fillColor: "#45b3e0",
 			        color: "black",
 			        weight: 1,
 			        opacity: 0.5,

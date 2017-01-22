@@ -1,4 +1,4 @@
-# Mining-Political
+# flock
 
 - Collected tweets from around the world for Women's March
 - Determined frequency of certain words and hashtags
