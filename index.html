@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+		<title>Women's March</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>		
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+		<!-- Map -->
+		<style>
+			#mapid {
+			    height: 650px;
+			    width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="#">Geolocation</a></li>
+		  <li role="presentation"><a href="#tweets">Tweets</a></li>
+		  <li role="presentation"><a href="#freq">Frequencies</a></li>
+		</ul>
+		<div id="mapid">
+		<script type="text/javascript">
+			// Load the tile images from OpenStreetMap
+			var mytiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+			});
+
+			// Initialise an empty map
+			var map = L.map('mapid');
+
+			// Read the GeoJSON data with jQuery, and create a circleMarker element for each tweet
+			// Each tweet will be represented by a nice red dot
+			$.getJSON("geo_data.json", function(data) {
+			    var myStyle = {
+			        radius: 4,
+			        fillColor: "blue",
+			        color: "black",
+			        weight: 1,
+			        opacity: 0.5,
+			        fillOpacity: 0.5
+			    };
+			 
+			    var geojson = L.geoJSON(data, {
+			        pointToLayer: function (feature, latlng) {
+			            return L.circleMarker(latlng, myStyle);
+			        }
+			    });
+			    geojson.addTo(map)
+			});
+
+			// Add the tiles to the map, and initialise the view in the middle of Europe
+			map.addLayer(mytiles).setView([41.8, -87.6], 5);
+
+		</script>
+		</div>
+		<div id="tweets"></div>
+	<!-- This is the footer -->
+		<footer>
+			<!-- Copyright Info -->
+			<p>&copy; 2017 by <span class = "highlight">Nagma & Sonia</span></p>
+		</footer>
+	</body>
+	
+</html>
