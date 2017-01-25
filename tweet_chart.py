@@ -72,16 +72,18 @@ with open(tweets_data_path, 'r') as f:
 
 			# Converts tweets to geoJSON
 			if tweet['coordinates']:
-				geo_json_feature = {
-					"type": "Feature",
-					"geometry": tweet['coordinates'],
-					"properties": {
-						"text": tweet['text'],
-						"created_at": tweet['created_at']
+				if tweet['text'] not in geo_data['features']:
+
+					geo_json_feature = {
+						"type": "Feature",
+						"geometry": tweet['coordinates'],
+						"properties": {
+							"text": tweet['text'],
+							"created_at": tweet['created_at']
+						}
 					}
-				}
-			if geo_json_feature['properties']['text'] not in geo_data['features']:
-				geo_data['features'].append(geo_json_feature)
+			# if geo_json_feature['properties']['text'] not in geo_data['features']:
+					geo_data['features'].append(geo_json_feature)
 		except:
 			continue
 
