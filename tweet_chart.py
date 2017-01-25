@@ -9,7 +9,8 @@ punctuation = list(string.punctuation)
 stop = punctuation + ['RT', 'via', 'the', '…', 'of', 'in', 'to', 
 'and', 'is', 'for', 'a', 'I', 'at', 'you', 'today', 'are', 'be', 'this', 'the', 'This', 'The', 'women', 'all', 'my', 'that',
 'so', 'it', 'on', 'with', 'from', 'not', 'was', 'de', 'amp', 'our', 'we', 'We', '@womensmarch', 'I\'m', 'who', '#womensmarch', '#WomensMarch', 'have',
-'what', 'they', 'as', 'up', 'her', '\'', 'day', 'about', 'march', '่', 'by', 'your', 'just', '️', 'ี', 'but'
+'what', 'they', 'as', 'up', 'her', '\'', 'day', 'about', 'march', '่', 'by', 'your', 'just', '️', 'ี', 'but', 'que', 'https', 'These', 'la', 'me', 'don\'t',
+'said', 'do', 'A', 'out', '’', 'im', '#SundayMorning', 'I\'M'
 ]
 
 hashtags = '#WomensMarch', 'womensmarch'
