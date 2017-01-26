@@ -2,3 +2,4 @@
 consumerkeys.yml
 political_tweets.json
 geo_data.json
+__pycache__

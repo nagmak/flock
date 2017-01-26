@@ -23,12 +23,11 @@ class StdOutListener(StreamListener):
 		return True
 
 	def on_error(self, status):
-		# import pdb; pdb.set_trace()
 		print (status)
 		return True
 
 if __name__ == '__main__':
-	#This handles Twitter authetification and the connection to Twitter REST & Streaming API
+	# This handles Twitter authentication and the connection to Twitter REST & Streaming API
 	# import pdb; pdb.set_trace()
 
 	l = StdOutListener()
